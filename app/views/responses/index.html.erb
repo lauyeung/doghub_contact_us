@@ -16,7 +16,7 @@
 
   <tbody>
     <% @responses.each do |response| %>
-      <tr>
+      <tr class="response_<%= response.id %>">
         <td><%= response.first_name %></td>
         <td><%= response.last_name %></td>
         <td><%= response.email %></td>
