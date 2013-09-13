@@ -14,28 +14,28 @@ feature "visitor contacts us", %Q{
 # * I must specify a first name
 # * I must specify a last name
 
-  scenario "I specify valid information" do
-    prev_count = Response.count
-    visit '/'
-    click_link 'Contact Us'
-    fill_in 'First name', with: 'Johnny'
-    fill_in 'Last name', with: 'Boursiquot'
-    fill_in 'Email', with: 'johnny@johnny.com'
-    fill_in 'Subject', with: 'You guys rock my world'
-    fill_in 'Description', with: 'Now I have somewhere to share my dog narcissism'
-    click_button 'Submit'
-    expect(page).to have_content("Thanks for your feedback!")
-    expect(Response.count).to eql(prev_count + 1)
-  end
+scenario "I specify valid information" do
+  prev_count = Response.count
+  visit '/'
+  click_link 'Contact Us'
+  fill_in 'First name', with: 'Johnny'
+  fill_in 'Last name', with: 'Boursiquot'
+  fill_in 'Email', with: 'johnny@johnny.com'
+  fill_in 'Subject', with: 'You guys rock my world'
+  fill_in 'Description', with: 'Now I have somewhere to share my dog narcissism'
+  click_button 'Submit'
+  expect(page).to have_content("Thanks for your feedback!")
+  expect(Response.count).to eql(prev_count + 1)
+end
 
-   scenario "I specify invalid information" do
-    prev_count = Response.count
-    visit '/'
-    click_link 'Contact Us'
-    click_button 'Submit'
-    expect(page).to have_content("can't be blank")
-    expect(Response.count).to eql(prev_count)
-  end
+ scenario "I specify invalid information" do
+  prev_count = Response.count
+  visit '/'
+  click_link 'Contact Us'
+  click_button 'Submit'
+  expect(page).to have_content("can't be blank")
+  expect(Response.count).to eql(prev_count)
+end
 
 
 end

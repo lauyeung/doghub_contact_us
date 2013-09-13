@@ -12,12 +12,12 @@ feature "admin browses visitor submissions", %Q{
 
 
 
-  scenario "I see multiple responses" do
-    response = FactoryGirl.create(:response)
-    visit '/'
-    expect(page).to have_content(response.subject)
-    expect(Response.count).to eql(1)
-  end
+scenario "I see multiple responses" do
+  response = FactoryGirl.create(:response)
+  visit '/'
+  expect(page).to have_content(response.subject)
+  expect(Response.count).to eql(1)
+end
 
 
 
